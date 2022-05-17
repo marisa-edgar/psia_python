@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="column">
+    {% for followed in user.profile.follows.all %}
+        {% for userpost in followed.user.userposts.all %}
+            <div class="box">
+                {{userpost.body}}
+                <span class="is-small has-text-grey-light">
+                    ({{ userpost.created_at }} by {{ userpost.user.username }}
+                </span>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<div class="column is-one-third">
+    <div class="block">
+    <a href="{% url 'psia_python_app:profile_list' %} ">
+        <button class="button is-dark is-outlined is-fullwidth">
+            All Profiles
+        </button>
+    </a>
+</div>
+<div class="block">
+    <a href="{% url 'psia_python_app:profile' request.user.profile.id %} ">
+        <button class="button is-success is-light is-outlined is-fullwidth">
+            My Profile
+        </button>
+    </a>
+    <div class="block">
+        <div class="block">
+            <h2 class="title is-2">Add a Post</p>
+        </div>
+        <div class="block">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="button is-success is-fullwidth is-medium mt-5"
+                        type="submit">Post
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

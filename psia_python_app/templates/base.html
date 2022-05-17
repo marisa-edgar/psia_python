@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="psia_python_app/static/css/main.css">
+    <title>PSIA</title>
+</head>
+<body class="has-background-light">
+<a href="{% url 'psia_python_app:dashboard' %} ">
+<section class="hero is-small is-dark mb-4">
+    <div class="hero-body">
+        <h1 class="title is-1">PSIA</h1>
+        <p class="subtitle is-4">
+            What is happening in your community?
+        </p>
+    </div>
+</section>
+</a>
+<div class="container has-background-ligh">
+    <div class="columns has-background-ligh">
+
+        {% block content %}
+
+        {% endblock content %}
+
+    </div>
+</div>
+</body>
+</html>

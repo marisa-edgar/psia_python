@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="column">
+
+{% for profile in profiles %}
+
+    <div class="block">
+      <div class="card">
+        <a href="{% url 'psia_python_app:profile' profile.id %}">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-64x64">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXRgrX3niTDPohUxH6ZLxn3esl09S-pjB5w&usqp=CAU"
+                      alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">
+                  {{ profile.user.username }}
+                </p>
+                <p class="subtitle is-6">
+                  @{{ profile.user.username|lower }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+{% endfor %}
+
+</div>
+
+{% endblock content %}
