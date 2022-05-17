@@ -1,0 +1,40 @@
+# Visual Studio Code # 
+/.vscode
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
+
+# mypy 
+.mypy_cache/ 
+
+# Environments 
+.env 
+/venv
+
+# pyenv 
+.python-version 
+
+# Installer logs 
+pip-log.txt 
+pip-delete-this-directory.txt 
+
+# Distribution / packaging 
+.Python build/ 
+lib/ 
+lib64/ 
+parts/ 
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+
+# Backup files # 
+*.bak 
+/psia_python/settings.py
