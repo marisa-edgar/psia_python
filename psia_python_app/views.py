@@ -1,6 +1,8 @@
+from contextvars import Context
 from django.shortcuts import render, redirect
 from .forms import UserPostForm
 from .models import UserPost, Profile
+from django.http import HttpResponse
 
 def dashboard(request):
   if request.method == "POST":
@@ -20,7 +22,6 @@ def dashboard(request):
     "psia_python_app/dashboard.html", 
     {'form': form, 'userposts': followed_userposts}
   )
-
 
 def profile_list(request):
   profiles = Profile.objects.exclude(user=request.user)
@@ -46,3 +47,6 @@ def profile(request, pk):
         current_user_profile.follows.remove(profile)
     current_user_profile.save()
   return render(request, "psia_python_app/profile.html", {"profile": profile})
+
+def index(request):
+  return render(request, 'psia_python_app/index.html', Context)
