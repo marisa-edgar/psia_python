@@ -9,11 +9,7 @@ class UserAdmin(admin.ModelAdmin):
     model = User
     fields = ["username"]
     inlines = [ProfileInLine]
+admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-
-class GroupAdmin(admin.ModelAdmin):
-    model = Group
-admin.site.unregister(Group)
-admin.site.register(Group, GroupAdmin)
 admin.site.register(UserPost)

@@ -11,16 +11,24 @@ def dashboard(request):
       userpost.save()
       return redirect("psia_python_app:dashboard")
 
-  followed_userposts = UserPost.object.filter(
-    user_profile_in=request.user.profile.follows.all()
+  followed_userposts = UserPost.objects.filter(
+    user__profile__in=request.user.profile.follows.all()
   ).order_by("-created_at")
   form = UserPostForm()
-  return render(request, "psia_python_app/dashboard.html", {'form': form, 'userposts': followed_userposts})
+  return render(
+    request, 
+    "psia_python_app/dashboard.html", 
+    {'form': form, 'userposts': followed_userposts}
+  )
 
 
 def profile_list(request):
   profiles = Profile.objects.exclude(user=request.user)
-  return render(request, 'psia_python_app/profile_list.html', {'profiles': profiles})
+  return render(
+    request, 
+    'psia_python_app/profile_list.html', 
+    {'profiles': profiles}
+  )
 
 def profile(request, pk):
   if not hasattr(request.user, 'profile'):

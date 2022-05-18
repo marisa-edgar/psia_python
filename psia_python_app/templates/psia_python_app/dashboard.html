@@ -3,15 +3,13 @@
 {% block content %}
 
 <div class="column">
-    {% for followed in user.profile.follows.all %}
-        {% for userpost in followed.user.userposts.all %}
-            <div class="box">
-                {{userpost.body}}
-                <span class="is-small has-text-grey-light">
-                    ({{ userpost.created_at }} by {{ userpost.user.username }}
-                </span>
-            </div>
-        {% endfor %}
+    {% for userpost in userposts %}
+        <div class="box">
+            {{userpost.body}}
+            <span class="is-small has-text-grey-light">
+                ({{ userpost.created_at }} by {{ userpost.user.username }}
+            </span>
+        </div>
     {% endfor %}
 </div>
 
