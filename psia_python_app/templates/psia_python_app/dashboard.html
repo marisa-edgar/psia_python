@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{%load static%}
 <div class="column">
     {% for userpost in userposts %}
         <div class="box">
+            {{userpost.image}}
             {{userpost.body}}
+            <img src="{% static 'images/Temp_Post_4.png' %}" width="50" height="50">
             <span class="is-small has-text-grey-light">
-                ({{ userpost.created_at }} by {{ userpost.user.username }}
+                {{ userpost.created_at }} by {{ userpost.user.username }}
             </span>
         </div>
     {% endfor %}
 </div>
+
 
 <div class="column is-one-third">
     <div class="block">
@@ -32,13 +35,17 @@
             <h2 class="title is-2">Add a Post</p>
         </div>
         <div class="block">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button class="button is-success is-fullwidth is-medium mt-5"
                         type="submit">Post
                 </button>
             </form>
+            {% if img_obj %}
+                <h3>Succesfully uploaded : {{img_obj.body}}</h3>
+                <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+{% endif %}
         </div>
     </div>
 

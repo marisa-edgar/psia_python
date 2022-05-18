@@ -16,4 +16,5 @@ class UserPostForm(forms.ModelForm):
 
       class Meta:
         model = UserPost
+        # fields = ('body', 'image')
         exclude = ("user", )

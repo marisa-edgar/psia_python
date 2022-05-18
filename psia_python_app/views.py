@@ -1,8 +1,7 @@
-from contextvars import Context
+from django.http import Http404
 from django.shortcuts import render, redirect
 from .forms import UserPostForm
-from .models import UserPost, Profile
-from django.http import HttpResponse
+from .models import UserPost, Profile, ImagePost
 
 def dashboard(request):
   if request.method == "POST":
@@ -48,5 +47,12 @@ def profile(request, pk):
     current_user_profile.save()
   return render(request, "psia_python_app/profile.html", {"profile": profile})
 
-def index(request):
-  return render(request, 'psia_python_app/index.html', Context)
+def imagepost(request, imagepost_id):
+  imagepost = ImagePost.objects.get(pk=imagepost_id)
+  if imagepost is not None:
+    return render(request, 'imageposts/image.html', {'imagepost': imagepost})
+  else:
+    raise Http404("image not found.")
+
+# def index(request):
+#   return render(request, 'psia_python_app/index.html', Context)
