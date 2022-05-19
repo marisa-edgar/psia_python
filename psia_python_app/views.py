@@ -1,3 +1,4 @@
+from email.mime import image
 from django.http import Http404
 from django.shortcuts import render, redirect
 from .forms import UserPostForm

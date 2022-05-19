@@ -6,6 +6,7 @@
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+.media
 
 # mypy 
 .mypy_cache/ 
@@ -38,3 +39,4 @@ media
 # Backup files # 
 *.bak 
 /psia_python/settings.py
+staticfiles

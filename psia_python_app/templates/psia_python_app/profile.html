@@ -30,6 +30,8 @@
         {% for userpost in profile.user.userposts.all %}
             <div class="box">
                 {{ userpost.body }}
+                <img src="
+                {{userpost.image.url}}" width="100" height="100" float="center">
                 <span class="is-small has-text-grey-light">
                     ({{ userpost.created_at }})
                 </span>

@@ -1,8 +1,11 @@
 from django import forms
 from django.forms import ModelForm
-from .models import UserPost
+from .models import ImagePost, UserPost
 
 class UserPostForm(forms.ModelForm):
+      image = forms.ImageField(
+        required=True,
+      )
       body = forms.CharField(
       required=True,
       widget=forms.widgets.Textarea(
@@ -16,5 +19,5 @@ class UserPostForm(forms.ModelForm):
 
       class Meta:
         model = UserPost
-        # fields = ('body', 'image')
+        fields = ('body', )
         exclude = ("user", )
