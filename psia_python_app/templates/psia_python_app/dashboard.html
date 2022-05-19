@@ -5,10 +5,9 @@
 <div class="column">
     {% for userpost in userposts %}
         <div class="box is-size-4 has-text-weight-medium">
-            {{userpost.profile_image.url}}
             <figure class="image is-square">
             <img src="
-            {{userpost.image.url}}" width="100" height="100" float="center">
+            {{userpost.image.url}}">
             <br />
             </figure>
             {{userpost.body}}

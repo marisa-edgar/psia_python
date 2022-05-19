@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
+{% load static %}
 <div class="column">
 
         <div class="block">
@@ -26,14 +26,22 @@
         </form>
     </div>
 
-    <div class="content">
+    <div class="column">
         {% for userpost in profile.user.userposts.all %}
-            <div class="box">
-                <img src="
-                {{userpost.profile_image.url}}" width="100" height="100" float="media-left">
+            <div class="box is-size-4 has-text-weight-medium">
+                <p class="title is-4 is-pulled-right">{{profile.user.username}}</p>
+                <figure class="image is-96x96">
+                    <img class="is-rounded" src="
+                    {{userpost.profile_image.url}}" width="100" height="100" float="media-left">
+                </figure>
+                <br/>
                 {{ userpost.body }}
-                <img src="
-                {{userpost.image.url}}" width="100" height="100" float="center">
+                <br/>
+                <figure class="imgage is-square">
+                    <img src="
+                    {{userpost.image.url}}" width="500" height="500">
+                </figure>
+                <br/>
                 <span class="is-small has-text-grey-light">
                     ({{ userpost.created_at }})
                 </span>
@@ -42,7 +50,6 @@
     </div>
 
 <div class="column is-one-third">
-
     <div class="block">
         <a href="{% url 'psia_python_app:profile_list' %}">
             <button class="button is-dark is-outlined is-fullwidth">
@@ -84,7 +91,6 @@
             </ul>
         </div>
     </div>
-
 </div>
 
 {% endblock content %}

@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="psia_python_app/static/css/main.css">
+    <!-- <link rel="stylesheet" href="psia_python_app/static/css/main.css"> -->
     <title>PSIA</title>
 </head>
 <body class="has-background-light">
 <a href="{% url 'psia_python_app:dashboard' %} ">
-<section class="hero is-small is-dark mb-4 ">
+<section class="hero is-small is-dark mb-4">
     <div class="hero-body">
+        {% load static %}
         <img src="media/images/Banner_Logo_Long_2.png" alt="PSIA logo banner">
         <p class="subtitle is-size-6">
             What is happening in your community?
