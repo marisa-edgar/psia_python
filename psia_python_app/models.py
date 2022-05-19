@@ -9,10 +9,12 @@ class UserPost(models.Model):
   )
   body = models.CharField(max_length=500)
   image = models.ImageField(blank = True, upload_to='images/')
+  profile_image = models.ImageField(blank = True, upload_to='images/')
   created_at = models.DateTimeField(auto_now_add=True)
   def __str__(self):
     return (
       f"{self.image} "
+      f"{self.profile_image} "
       f"{self.user} "
       f"{self.created_at:%Y-%m-%d %H:%M}: "
       f"{self.body[:30]}..."
@@ -35,7 +37,10 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        return self.user.username
+        return(
+          f"{self.user.username} "
+          )
+
         
     @receiver(post_save, sender=User)
     def create_profile(sender, instance, created, **kwargs):
