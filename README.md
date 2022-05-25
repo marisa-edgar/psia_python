@@ -4,7 +4,6 @@
 
 #### A Community Media App which connects community organizations with community members in need and vice versa.
 
-![image](media/images/Screenshot.png)
 
 ## Technologies Used
 
